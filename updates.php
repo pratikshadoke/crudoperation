@@ -4,6 +4,35 @@
 <head>
     <?php include 'links.php' ?>
     <title>Update Data</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @media screen and (max-width: 418px) {
+            #bgformis
+            {
+                flex-direction: row;
+            }
+        }
+
+        #bounce {
+            animation: bouncing infinite 2s ease-in-out;
+        }
+
+        @keyframes bouncing {
+            from {
+                margin-top: -20px;
+            }
+
+            to {
+                margin-bottom: -20px;
+            }
+        }
+    </style>
+
 </head>
 
 <body style="margin:0;padding:0;background-color: #ffffff;font-family:'Poppins', sans-serif;background-image:linear-gradient(rgba(240, 98, 146,50),rgba(187, 222, 251 
@@ -24,27 +53,29 @@
       border-color: rgb(255, 255, 255);">
 
                 <div class="row">
-                    <div id="bgformis" class="col-12">
+                <div class="col-auto">
                         <div class="large d-flex justify-content-center align-items-center font-weight-bold font- mt-2" style="color:#ffffff;">
                             <div class="h2 d-flex justify-content-center align-items-center  text-center" style="width:100px;height:75px;border: 1px solid #ffffff;border-radius: 50px;"><i class="fas fa-address-card" style="font-size: 50px;border-radius: 20px!important;"></i></div>
                         </div>
                         <div class="large d-flex justify-content-center align-items-center font-weight-bold font- mt-2" style="color: #ffffff;">
                             <div class="h2 text-center font-weight-bold">EMPLOYEE CRUD OPERATION USING MYSQL PHP</div>
                         </div>
-                        <div class="bg-form mb-3 d-flex justify-content-center align-items-center " style="flex-direction:columm;background-color: #ECEFF1  ;border-radius:100px 0px 100px 0px">
-                            <div class="col-6 large d-flex justify-content-center align-items-center " style="flex-direction:column;color: #ffffff;">
+                        
+                        <div class=" large d-flex justify-content-center align-items-center " style="flex-direction:column;color: #ffffff;">
                                 <img id='bounce' src="offer.png" style="width: 130px;height:100px" alt="">
-                                <div class="h4 text-center font-weight-bold mt-4" style="color:#64B5F6 ">Welcome </div>
-                                <div class="text-center " style="color:#64B5F6">Please fill the details carefully & Check form here & perform operations on it. </div>
+                                <div class="h4 text-center font-weight-bold mt-4" style="color:#ffffff ">Welcome </div>
+                                <div class="text-center " style="color:#ffffff">Please fill the details carefully & Check form here & perform operations on it. </div>
                                 <div class="text-center mt-2">
-                                    <a type="checkform" href="home.php" class="btn btn-primary mb-3 font-weight-bold" value="Check Form" style="background:#fff;color:#3949AB ;border-radius:50px;padding: 4px 8px;">Check form</button></a>
+                                <a type="checkform" href="home.php" class="btn btn-primary mb-3 font-weight-bold" value="Check Form" style="background:#fff;color:#3949AB ;border-radius:50px;padding: 4px 8px;">Check form</button></a>
 
                                 </div>
 
                             </div>
 
-                            <div class="col-md-6 col-sm-4">
-                                <form method="POST" action="">
+                            
+
+                            
+                            <form class="form-group d-flex justify-content-center align-items-center" method="POST" action="" style="flex-direction:column;background-color: #ECEFF1 ;padding:26px 26px;border-radius:100px 0px 100px 0px">
                                     <?php
                                     include 'connection.php';
                                     $ids = $_GET['id'];
@@ -64,7 +95,7 @@
                                         $result = mysqli_query($con, $updatequery);
                                         if ($result) {
                                             
-                                            header('location:index.php');
+                                           
                                     ?>
                                             <script>
                                                 alert("Data updated successfully");
@@ -83,10 +114,10 @@
 
 
 
-                                    <input type="name" name="username" class="form-control   mt-4" id="inputname" value="<?php echo $arraydata['name']; ?> " placeholder="Enter Name here" style="background-color: #ffffff;color:#3949AB ;border-radius: 5px;text-transform:capitalize;" required autocomplete="off">
-                                    <input type="email" name="email" class="form-control   mt-4" id="inputemail" value="<?php echo $arraydata['email']; ?> " placeholder="Enter Email here" style="background-color: #ffffff;color:#3949AB ;border-radius: 5px;text-transform:lowercase;" required autocomplete="off">
-                                    <input type="name" name="address" class="form-control   mt-4" id="inputadress" value="<?php echo $arraydata['adress']; ?> " placeholder="Enter Address here" style="background-color: #ffffff;color:#3949AB ;border-radius: 5px;text-transform:capitalize;" required autocomplete="off">
-                                    <input type="name" name="jobpost" class="form-control  mt-4" id="inputjobpost" value="<?php echo $arraydata['jobpost']; ?>" placeholder="Enter Job Post here" style="background-color: #ffffff;color:#3949AB ;border-radius: 5px;text-transform:capitalize;" required autocomplete="off">
+                                    <input type="name" name="username" class="form-control  text-center mt-4" id="inputname" value="<?php echo $arraydata['name']; ?> " placeholder="Enter Name here" style="background-color: #ffffff;color:#3949AB ;border-radius: 5px;text-transform:capitalize;" required autocomplete="off">
+                                    <input type="email" name="email" class="form-control text-center  mt-4" id="inputemail" value="<?php echo $arraydata['email']; ?> " placeholder="Enter Email here" style="background-color: #ffffff;color:#3949AB ;border-radius: 5px;text-transform:lowercase;" required autocomplete="off">
+                                    <input type="name" name="address" class="form-control  text-center mt-4" id="inputadress" value="<?php echo $arraydata['adress']; ?> " placeholder="Enter Address here" style="background-color: #ffffff;color:#3949AB ;border-radius: 5px;text-transform:capitalize;" required autocomplete="off">
+                                    <input type="name" name="jobpost" class="form-control text-center mt-4" id="inputjobpost" value="<?php echo $arraydata['jobpost']; ?>" placeholder="Enter Job Post here" style="background-color: #ffffff;color:#3949AB ;border-radius: 5px;text-transform:capitalize;" required autocomplete="off">
                                     <div class="text-center mt-4">
                                         <input type="submit" name='submit' class="btn btn-primary mb-3 font-weight-bold" value="Update" style="border-color:#fff;border-radius:20px;padding: 6px 12px;box-shadow:#64B5F6"></button>
 
@@ -95,8 +126,8 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    
+                
             </li>
         </ul>
     </div>
